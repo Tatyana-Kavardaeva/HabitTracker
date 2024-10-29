@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "habittracker"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "4.2.2"
+psycopg2 = "^2.9.10"
+djangorestframework = "^3.15.2"
+pillow = "^11.0.0"
+python-dotenv = "^1.0.1"
+djangorestframework-simplejwt = "^5.3.1"
+drf-yasg = "^1.21.8"
+django-cors-headers = "^4.6.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
