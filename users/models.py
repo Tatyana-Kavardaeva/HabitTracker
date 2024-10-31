@@ -12,6 +12,8 @@ class User(AbstractUser):
     first_name = models.CharField(max_length=50, verbose_name="Имя", **NULLABLE)
     last_name = models.CharField(max_length=50, verbose_name="Фамилия", **NULLABLE)
 
+    tg_chat_id = models.CharField(max_length=50, verbose_name="Телеграм chat-id", **NULLABLE)
+
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
 
