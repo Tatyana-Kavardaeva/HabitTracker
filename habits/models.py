@@ -1,18 +1,21 @@
-# from django.core.validators import MinValueValidator, MaxValueValidator
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from config import settings
 
 NULLABLE = {'blank': True, 'null': True}
 
-# WEEKDAY = [
-#             (1, 'Понедельник'),
-#             (2, 'Вторник'),
-#             (3, 'Среда'),
-#             (4, 'Четверг'),
-#             (5, 'Пятница'),
-#             (6, 'Суббота'),
-#             (7, 'Воскресенье'),
-#         ]
+
+class Weekday(models.Model):
+    day = models.CharField(max_length=20, verbose_name='День недели')
+    number = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(7)], unique=True,
+                                 verbose_name='Порядковый номер дня в неделе')
+
+    class Meta:
+        verbose_name = 'День недели',
+        verbose_name_plural = 'Дни недели'
+
+    def __str__(self):
+        return self.day
 
 
 class Habit(models.Model):
@@ -24,9 +27,7 @@ class Habit(models.Model):
     pleasant_habit = models.BooleanField(default=False, verbose_name='Признак приятной привычки')
     related_habit = models.ForeignKey('self', related_name='related_to', on_delete=models.SET_NULL, **NULLABLE,
                                       verbose_name='Связанная привычка')
-    # periodicity = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(7)], choices=WEEKDAY,
-    #                                   verbose_name='Периодичность выполнения')
-    periodicity = models.PositiveIntegerField(default=1, verbose_name='Периодичность выполнения')
+    weekdays = models.ManyToManyField(Weekday, default=1, verbose_name='Дни недели', related_name='habits')
     reward = models.CharField(max_length=255, **NULLABLE, verbose_name='Вознаграждение')
     time_to_complete = models.DurationField(verbose_name='Время на выполнение')
     is_public = models.BooleanField(default=False, verbose_name='Признак публичности')
