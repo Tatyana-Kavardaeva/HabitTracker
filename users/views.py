@@ -14,6 +14,3 @@ class UserViewSet(ModelViewSet):
             return [AllowAny()]
         else:
             return [IsAuthenticatedOrReadOnly()]
-
-    def perform_create(self, serializer):
-        serializer.save(is_active=True)
