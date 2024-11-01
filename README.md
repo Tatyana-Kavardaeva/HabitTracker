@@ -25,8 +25,7 @@
 
 1. Клонируйте репозиторий:
    ```bash
-   git clone https://github.com/ваш_репозиторий.git
-   cd ваш_репозиторий
+   git clone https://github.com/Tatyana-Kavardaeva/HabitTracker
 
 2. Установите зависимости с помощью Poetry:
     ```bash
