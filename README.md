@@ -6,24 +6,20 @@
 удалять свои привычки, а также получать напоминания через Telegram. API предоставляет возможность работать с полезными и
 приятными привычками, а также управлять их периодичностью и вознаграждениями.
 
-## Эндпоинты проекта
-
-- **GET /habits/**: Список привычек текущего пользователя (с пагинацией).
-- **GET /habits/public/**: Список публичных привычек.
-- **POST /habits/create/**: Создание привычки.
-- **GET /habits/<int:pk>/**: Получение информации о привычке.
-- **PUT /habits/<int:pk>/update/**: Редактирование привычки.
-- **DELETE /habits/<int:pk>/delete/**: Удаление привычки.
-
-### Документация проекта
+## Документация
 
 - **GET /swagger/**: Документация в формате Swagger UI.
-- **GET /swagger<format>/**: Документация в формате JSON.
 - **GET /redoc/**: Документация в формате ReDoc.
 
-## Интеграция с Telegram
+## Используемые технологии:
 
-Для отправки уведомлений о привычках реализована интеграция сервиса с Telegram.
+    Python 3.12
+    Django 4.2.2
+    PostgreSQL
+    Django REST Framework
+    Celery
+    Redis
+    Telegram API
 
 ## Установка
 
@@ -38,28 +34,21 @@
 
 3. Настройте переменные окружения:
    Создайте файл .env и добавьте необходимые переменные, такие как:
-   ``bash
-   SECRET_KEY=ваш_секретный_ключ
-   DEBUG=True
-   DATABASE_URL=ваша_строка_подключения
-   TELEGRAM_TOKEN=ваш_токен_телеграм
+   ```bash
+   SECRET_KEY
+   LOCATION
+   LOCALHOST
+   TELEGRAM_TOKEN
+   
+   для подключения базы данных:
+   NAME
+   USER
+   PASSWORD
 
 4. Выполните миграции:
-   ``bash
+   ```bash
    poetry run python manage.py migrate
 
 5. Запустите сервер:
-   ``bash
-   poetry run python manage.py runserver
-
-6. Настройте CORS, чтобы обеспечить доступ фронтенда к API на развернутом сервере.
-
-## Используемые технологии:
-
-    Python 3.12
-    Django 4.2.2
-    PostgreSQL
-    Django REST Framework
-    Celery
-    Redis
-    Telegram API
+   ```bash
+   python manage.py runserver
