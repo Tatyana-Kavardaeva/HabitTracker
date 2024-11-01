@@ -20,6 +20,7 @@ eventlet = "^0.37.0"
 redis = "^5.2.0"
 django-celery-beat = "^2.7.0"
 requests = "^2.32.3"
+coverage = "^7.6.4"
 
 
 [build-system]
