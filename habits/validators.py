@@ -45,11 +45,3 @@ class TimeValidator:
         tmp_val = dict(value).get(self.fields)
         if tmp_val and tmp_val > time:
             raise serializers.ValidationError("Время на выполнение привычки не должно превышать 120 секунд.")
-
-
-# allow_links = 'youtube.com'
-#
-#
-# def validate_allow_links(value):
-#     if allow_links not in value.lower():
-#         raise ValidationError('Добавление ссылок на сторонние сайты запрещено')

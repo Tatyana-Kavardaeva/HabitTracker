@@ -71,7 +71,6 @@ class HabitTestCase(APITestCase):
         response = self.client.get(url)
         data = response.json()
 
-        # Преобразуем weekdays в список идентификаторов
         weekdays_ids = [self.weekday.pk]
 
         result = {
