@@ -9,13 +9,11 @@ class UserViewSet(ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-    # def get_permissions(self):
-    #     if self.request.method == 'POST':
-    #         return [AllowAny()]
-    #     else:
-    #         return [IsAuthenticatedOrReadOnly()]
-    #
-    # def perform_create(self, serializer):
-    #     user = serializer.save(is_active=True)
-    #     user.set_password(user.password)
-    #     user.save()
+    def get_permissions(self):
+        if self.request.method == 'POST':
+            return [AllowAny()]
+        else:
+            return [IsAuthenticatedOrReadOnly()]
+
+    def perform_create(self, serializer):
+        serializer.save(is_active=True)
