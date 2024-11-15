@@ -20,6 +20,8 @@
     Celery
     Redis
     Telegram API
+    Docker
+    Docker Compose
 
 ## Установка
 
@@ -31,7 +33,7 @@
     ```bash
     poetry install
 
-3. Настройте переменные окружения:
+3. Настройте переменные окружения.
    Создайте файл .env и добавьте необходимые переменные, такие как:
    ```bash
    SECRET_KEY
@@ -44,10 +46,9 @@
    USER
    PASSWORD
 
-4. Выполните миграции:
-   ```bash
-   poetry run python manage.py migrate
+4. Убедитесь, что у вас установлен Docker и Docker Compose.
+   Затем выполните:
+   ``` bash
+   docker-compose up --build
 
-5. Запустите сервер:
-   ```bash
-   python manage.py runserver
+Это создаст и запустит контейнеры для приложения, базы данных, Celery и Redis.
